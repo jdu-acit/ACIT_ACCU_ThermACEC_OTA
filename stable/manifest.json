@@ -1,8 +1,8 @@
 {
-  "version": "0.0.1039",
-  "firmware": "acit_thermacec_v0.0.1039_20251128.bin",
-  "size": 2055840,
-  "date": "2025-11-28T08:55:10.636814",
+  "version": "0.0.1040",
+  "firmware": "acit_thermacec_v0.0.1040_20251128.bin",
+  "size": 2056416,
+  "date": "2025-11-28T09:03:56.420934",
   "project": "ACIT ThermACEC",
   "project_id": "acit_thermacec"
 }
