@@ -1,7 +1,11 @@
 {
+  "app": "thermacec",
+  "channel": "stable",
   "version": "0.0.1040",
-  "firmware": "acit_thermacec_v0.0.1040_20251128.bin",
+  "url": "https://raw.githubusercontent.com/jdu-acit/ACIT_ACCU_ThermACEC_OTA/main/stable/acit_thermacec_v0.0.1040_20251128.bin",
   "size": 2056416,
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "mandatory": false,
   "date": "2025-11-28T09:03:56.420934",
   "project": "ACIT ThermACEC",
   "project_id": "acit_thermacec"
