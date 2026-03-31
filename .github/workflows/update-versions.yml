@@ -1,0 +1,68 @@
+name: Update versions.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stable/**'
+      - 'beta/**'
+
+permissions:
+  contents: write
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate versions.json
+        run: |
+          python3 - <<'EOF'
+          import os, json
+          from datetime import datetime, timezone
+
+          products = {
+            "thermacec": {
+              "name": "ACIT ThermACEC",
+              "chip": "ESP32-C6",
+              "repoOwner": "jdu-acit",
+              "repoName": "ACIT_ACCU_ThermACEC_OTA",
+              "binPrefix": "acit_accu_thermacec",
+              "stable": [],
+              "beta": []
+            }
+          }
+
+          for channel in ["stable", "beta"]:
+            if os.path.isdir(channel):
+              versions = sorted(
+                [d for d in os.listdir(channel)
+                 if os.path.isdir(os.path.join(channel, d))
+                 and d.startswith("v")
+                 and os.path.isfile(os.path.join(channel, d, "merged_flash.bin"))],
+                reverse=True
+              )
+              products["thermacec"][channel] = versions
+
+          output = {
+            "products": products,
+            "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+          }
+
+          with open("versions.json", "w") as f:
+            json.dump(output, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+
+          print("Generated versions.json:")
+          print(json.dumps(output, indent=2))
+          EOF
+
+      - name: Commit versions.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add versions.json
+          git diff --cached --quiet || git commit -m "chore: auto-update versions.json [skip ci]"
+          git push
+

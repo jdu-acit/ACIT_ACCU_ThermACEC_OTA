@@ -1,0 +1,18 @@
+{
+  "products": {
+    "thermacec": {
+      "name": "ACIT ThermACEC",
+      "chip": "ESP32-C6",
+      "repoOwner": "jdu-acit",
+      "repoName": "ACIT_ACCU_ThermACEC_OTA",
+      "binPrefix": "acit_accu_thermacec",
+      "stable": [
+        "v1.0.0-1079",
+        "v1.0.0-1078"
+      ],
+      "beta": []
+    }
+  },
+  "generated": "2026-03-31T00:00:00Z"
+}
+
