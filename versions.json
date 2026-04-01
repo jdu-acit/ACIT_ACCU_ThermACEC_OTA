@@ -7,6 +7,7 @@
       "repoName": "ACIT_ACCU_ThermACEC_OTA",
       "binPrefix": "acit_accu_thermacec",
       "stable": [
+        "v1.0.0-1088",
         "v1.0.0-1081",
         "v1.0.0-1079",
         "v1.0.0-1078"
@@ -14,5 +15,5 @@
       "beta": []
     }
   },
-  "generated": "2026-04-01T08:36:51Z"
+  "generated": "2026-04-01T09:00:04Z"
 }
