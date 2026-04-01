@@ -1,0 +1,9 @@
+{
+  "id": "thermacec",
+  "name": "ACIT ThermACEC",
+  "chip": "ESP32-C6",
+  "repoOwner": "jdu-acit",
+  "repoName": "ACIT_OTA",
+  "binPrefix": "acit_accu_thermacec"
+}
+
